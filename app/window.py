@@ -9,7 +9,7 @@ from PySide6.QtWidgets import (
 
 from components.sidebar import Sidebar
 from components.header import Header
-
+from pages.dashboard import DashboardPage
 
 class MainWindow(QMainWindow):
 
@@ -45,25 +45,10 @@ class MainWindow(QMainWindow):
         self.header = Header()
         content_layout.addWidget(self.header)
 
-        # Page content placeholder
-        self.page_content = QWidget()
-        page_layout = QVBoxLayout(self.page_content)
-
-        page_layout.setContentsMargins(35, 35, 35, 35)
-
-        welcome = QLabel("Welcome to FLOWSTATE")
-        welcome.setObjectName("WelcomeTitle")
-
-        description = QLabel(
-            "Your workspace. Your focus. Your progress."
-        )
-        description.setObjectName("WelcomeDescription")
-
-        page_layout.addWidget(welcome)
-        page_layout.addWidget(description)
-        page_layout.addStretch()
-
+        # Dashboard page
+        self.page_content = DashboardPage()
         content_layout.addWidget(self.page_content)
+
 
         main_layout.addWidget(content_widget)
 
@@ -171,4 +156,69 @@ class MainWindow(QMainWindow):
                 color: #64748B;
                 font-size: 10px;
             }
+            /* Dashboard */
+
+QLabel#DashboardWelcome {
+    color: #F8FAFC;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+QLabel#DashboardSubtitle {
+    color: #94A3B8;
+    font-size: 13px;
+}
+
+QLabel#DashboardSectionTitle {
+    color: #F8FAFC;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+QFrame#DashboardCard {
+    background-color: #191D26;
+    border: 1px solid #292F3B;
+    border-radius: 12px;
+}
+
+QLabel#StatTitle {
+    color: #94A3B8;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+QLabel#StatValue {
+    color: #F8FAFC;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+QLabel#StatDescription {
+    color: #64748B;
+    font-size: 11px;
+}
+
+QLabel#TaskPreviewName {
+    color: #E2E8F0;
+    font-size: 12px;
+}
+
+QLabel#TaskPreviewStatus {
+    color: #A5B4FC;
+    font-size: 11px;
+}
+
+QPushButton#QuickActionButton {
+    background-color: #252B3A;
+    color: #E2E8F0;
+    border: 1px solid #343C50;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 12px;
+}
+
+QPushButton#QuickActionButton:hover {
+    background-color: #343D53;
+    color: #FFFFFF;
+}
         """)
