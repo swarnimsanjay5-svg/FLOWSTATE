@@ -3,9 +3,11 @@ import sys
 
 from PySide6.QtWidgets import QApplication
 from app.window import MainWindow
+from database.db import initialize_database
 
 
 def main():
+    initialize_database()
     print("Starting FLOWSTATE...")
 
     app = QApplication(sys.argv)
